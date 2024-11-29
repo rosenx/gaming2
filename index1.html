@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cannon War</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+<div class="gameApp">
+    <div class="sounds">
+        <!-- Place for music and sound effects -->
+        <audio src="sound/highschool_fragments.mp3" preload="auto" id="warBgm"></audio>
+        <audio src="sound/horn.mp3" id="bigPika" preload="auto"></audio>
+        <audio src="sound/large_gun_fire1.ogg" id="ArtilleryLunch" preload="auto"></audio>
+        <audio src="sound/large_gun_fire2.ogg" id="ArtilleryBomb" preload="auto"></audio>
+        <audio src="sound/missile_fire.ogg" id="MissileLunch" preload="auto"></audio>
+        <audio src="sound/missile_hit.ogg" id="MissileBomb" preload="auto"></audio>
+        <audio src="sound/zappyshot_01.mp3" id="zap" preload="auto"></audio>
+    </div>
+    <div class="main-interface interface">
+        <h1>Cannon War</h1>
+        <h2>Tower War</h2>
+        <div class="btnList">
+            <button class="startGame">Start Game</button>
+            <button class="help">Help</button>
+            <button class="wiki">Game Encyclopedia</button>
+        </div>
+
+        <div class="leftTopArea">
+            <button class="soundSet">
+                <audio src="sound/tower_and_war.mp3" id="bgm" controls="controls" autoplay loop>
+                    Your browser does not support playback.
+                </audio>
+            </button>
+        </div>
+    </div>
+    <div class="help-interface interface" style="display: none">
+
+        <div class="content">
+            <h2 class="helpTitle">Help</h2>
+            <p>Click the right-side button, then click on the canvas to place a new building.</p>
+            <p>Right-click to cancel placing a new building.</p>
+            <p>Click on enemies to view their information.</p>
+            <p>Click on a building on the stage to upgrade it, especially when a green arrow appears. This means it can be upgraded.</p>
+            <h2 class="helpTitle">Help Video (May Take a While to Load)</h2>
+            <video src="mov/help_x264.mp4" controls="controls"></video>
+        </div>
+
+        <div class="leftTopArea">
+            <button class="backPage">Back</button>
+        </div>
+    </div>
+
+    <div class="modeChoice-interface interface" style="display: none">
+        <h1>Mode Choice</h1>
+        <h2>Mode Selection</h2>
+        <div class="btnList">
+            <div class="btnArea">
+                <button class="endlessMode-easy">Endless Waves - Easy</button>
+                <p>Fewer enemy types, no strong enemies.</p>
+            </div>
+            <div class="btnArea">
+                <button class="endlessMode-normal">Endless Waves - Normal</button>
+                <p>Comprehensive enemy types, increased maximum health, and faster health scaling with wave count.</p>
+            </div>
+            <div class="btnArea">
+                <button class="endlessMode-hard">Endless Waves - Hard</button>
+                <p>Comprehensive enemy types, more enemies per wave, more types per wave, tougher bosses, and less funding.</p>
+            </div>
+            <div class="btnArea">
+                <button class="infiniteTimeMode-easy">Endless Time - Easy</button>
+                <p>Fewer enemy types, no strong enemies.</p>
+            </div>
+            <div class="btnArea">
+                <button class="infiniteTimeMode-hard">Endless Time - Hard</button>
+                <p>...</p>
+            </div>
+        </div>
+        <div class="leftTopArea">
+            <button class="backPage">Back</button>
+        </div>
+    </div>
+
+    <div class="wiki-interface interface" style="display: none">
+        <h1>Cannon War Wiki</h1>
+        <h2>Game Encyclopedia</h2>
+        <div class="btnList">
+            <button class="cannonList">Cannons</button>
+            <button class="monsterList">Monsters</button>
+        </div>
+        <div class="leftTopArea">
+            <button class="backPage">Back</button>
+        </div>
+    </div>
+
+    <div class="cannon-interface interface" style="display: none">
+        <h1>Cannons</h1>
+        <h2>Cannon Overview</h2>
+        <div class="content">
+
+        </div>
+        <div class="leftTopArea">
+            <button class="backPage">Back</button>
+        </div>
+    </div>
+
+    <div class="monsters-interface interface" style="display: none">
+        <h1>Monsters</h1>
+        <h2>Monster Overview</h2>
+        <div class="content">
+
+        </div>
+        <div class="leftTopArea">
+            <button class="backPage">Back</button>
+        </div>
+    </div>
+
+    <div class="interface war-interface" style="display: none">
+        <canvas width="1200" height="780" id="mainCanvas"></canvas>
+        <div class="rightTopArea">
+            <button class="backPage">Back</button>
+            <button class="pause">Pause</button>
+        </div>
+        <div id="smallLevelUpPanel" style="display: none">
+            <p><span class="name"></span> can be upgraded to:</p>
+            <div class="levelUpItems">
+            </div>
+            <div class="otherItems">
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="choiceBtn" style="display: none">
+
+    <div class="initPanel"></div>
+
+    <div class="choicePanel" style="display: none">
+        <div class="monsterData">
+            <p>Name: <span class="monsterName"></span></p>
+            <p>Description: <span class="monsterComment"></span></p>
+        </div>
+    </div>
+
+</div>
+<script src="model/staticInitData.js"></script>
+<script src="sound/sounds.js"></script>
+<script src="model/myColor.js"></script>
+<script src="model/functions.js"></script>
+<script src="model/vector.js"></script>
+<script src="model/circle.js"></script>
+<script src="model/line.js"></script>
+
+<script src="model/circleObject.js"></script>
+<script src="model/lineObject.js"></script>
+<script src="model/rectangle.js"></script>
+<script src="effect/effect.js"></script>
+<script src="effect/effectCircle.js"></script>
+<script src="effect/effectLine.js"></script>
+
+<script src="bullys/bully.js"></script>
+<script src="bullys/bullyFinally.js"></script>
+<script src="towers/tower.js"></script>
+<script src="towers/towerLaser.js"></script>
+<script src="towers/towerHell.js"></script>
+<script src="towers/towerHammer.js"></script>
+<script src="towers/towerBoomerang.js"></script>
+<script src="towers/towerRay.js"></script>
+<script src="towers/towerFinally.js"></script>
+<script src="buildings/building.js"></script>
+<script src="buildings/buildingFinally.js"></script>
+
+<script src="monster/monster.js"></script>
+<script src="monster/monsterShooter.js"></script>
+<script src="monster/monsterMortis.js"></script>
+<script src="monster/monsterTerminator.js"></script>
+<script src="monster/monsterFinally.js"></script>
+<script src="monster/monsterGroup.js"></script>
+
+<script src="world.js"></script>
+
+<script src="index.js"></script>
+</body>
+</html>

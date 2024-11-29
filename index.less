@@ -1,0 +1,436 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: myFont;
+  src: url("fonts/庞门正道标题体.ttf");
+}
+
+body {
+  overflow: hidden;
+
+  .gameApp {
+    width: 100%;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    //outline: solid 1px;
+    position: absolute;
+
+    .fonts() {
+      font-family: myFont, "Times New Roman", serif;
+      //font-family: "Times New Roman", serif;
+    }
+
+
+    .header() {
+      // 界面标题样式
+      width: 100%;
+      top: 15%;
+      position: absolute;
+      text-align: center;
+      font-weight: lighter;
+      .fonts();
+      text-shadow: white 0 0 10px;
+    }
+
+    .interface {
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      //background-color: skyblue;
+      background-image: url("imgs/background (3).jpg");
+      background-size: cover;
+
+      h1 {
+        .header();
+        font-size: 60px;
+      }
+
+      h2 {
+        .header();
+        top: 25%;
+        font-size: 40px;
+      }
+
+      .leftTopArea {
+        //outline: solid 1px;
+        width: 100px;
+        height: 100px;
+        padding: 30px;
+
+        button {
+          .interfaceBtn();
+          margin: 0;
+        }
+      }
+
+      .btnList {
+        width: 300px;
+        position: absolute;
+        left: 50%;
+        top: 40%;
+        //outline: solid 1px;
+        transform: translateX(-150px);
+
+        button {
+          .interfaceBtn();
+          font-size: 30px;
+          padding: 25px 50px 25px 50px;
+          .fonts();
+        }
+      }
+    }
+
+    // 模式选择界面
+    .modeChoice-interface {
+      //border: solid 1px red;
+      //height: auto;
+      overflow-y: scroll;
+
+      .note {
+        background-color: black;
+        color: orangered;
+      }
+
+      h1, h2 {
+        //top: 20px;
+        position: static;
+        margin-top: 60px;
+      }
+
+      .leftTopArea {
+        position: absolute;
+        left: 0;
+        top: 0;
+        //background-color: pink;
+      }
+
+      .btnList {
+        position: absolute;
+        //display: block;
+        outline: solid 1px white;
+        left: 50%;
+        top: 30%;
+        @W: 800px;
+        width: @W;
+        height: 520px;
+
+        overflow-y: scroll;
+        transform: translateX(-(@W/2));
+        text-align: center;
+        padding-top: 50px;
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .btnArea {
+          outline: solid 1px white;
+
+
+          button {
+            margin: 15px auto;
+            font-size: 20px;
+            width: 250px;
+            padding: 10px;
+          }
+
+          p {
+            margin: 10px;
+            //outline: solid 1px;
+            text-align: center;
+          }
+        }
+      }
+    }
+
+    .war-interface {
+      background-image: url("imgs/background (2).jpg");
+
+      .rightTopArea {
+        width: 100px;
+        //height: 100px;
+        position: absolute;
+        //outline: solid 1px;
+
+        right: 12%;
+        top: 0;
+
+        .backPage, .pause {
+          .interfaceBtn();
+          width: 100px;
+        }
+      }
+    }
+
+    .help-interface {
+      overflow-y: scroll;
+
+      .rightTopArea {
+        position: absolute;
+        width: 100px;
+        right: 12%;
+        top: 0;
+      }
+
+      .content {
+
+        width: 80%;
+        margin: 0 auto;
+        padding-top: 50px;
+        padding-bottom: 100px;
+        text-align: center;
+        background-color: rgba(255, 255, 255, 0.5);
+
+        h2.helpTitle {
+          text-align: center;
+          position: static;
+          line-height: 2em;
+        }
+
+        video {
+          margin: 20px;
+          outline: solid 2px;
+          width: 80%;
+        }
+      }
+    }
+
+    .main-interface {
+      .btnList {
+        width: 600px;
+        //outline: solid 1px;
+        position: absolute;
+        left: 50%;
+        top: 40%;
+        transform: translateX(-300px);
+      }
+    }
+
+    .cannon-interface, .monsters-interface {
+      overflow-y: scroll;
+
+      h1, h2 {
+        position: static;
+      }
+
+      .content {
+        width: 90%;
+        margin: 0 auto;
+        //background-color: gray;
+        overflow: hidden;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .tower, .monster {
+          //outline: solid 1px;
+          float: left;
+          width: 200px;
+          //height: 300px;
+          height: 400px;
+          padding: 10px;
+          margin: 5px;
+          background-color: rgba(255, 255, 255, 0.5);
+          //border-radius: 30px;
+          transition: all 0.2s;
+
+          &:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+          }
+
+          h3 {
+            text-align: center;
+            line-height: 2em;
+            .fonts();
+            font-weight: lighter;
+          }
+
+          .tower-shape, .monster-shape {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            border-radius: 50%;
+            outline: solid 1px red;
+          }
+
+          p {
+            font-size: 10px;
+          }
+        }
+      }
+
+      .leftTopArea {
+        position: absolute;
+        right: 10%;
+        top: 0;
+
+        .backPage {
+          width: 100px;
+        }
+      }
+    }
+
+    #mainCanvas {
+      left: 0;
+      top: 0;
+      outline: solid 1px;
+    }
+
+    .interfaceBtn() {
+      background-color: #1e1e1e;
+      color: rgb(241, 243, 244);
+      width: 400px;
+      display: block;
+      margin: 30px auto;
+      padding: 10px;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+      border-radius: 100px;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+
+  .choiceBtn {
+    width: 200px;
+    height: 100vh;
+    position: absolute;
+    //float: left;
+    right: 0;
+    top: 0;
+    //outline: solid 1px;
+    overflow-y: scroll;
+    //background-color: pink;
+
+    .Battery {
+      color: rgb(156, 220, 254);
+    }
+
+    .Building {
+      color: gold;
+    }
+
+    button {
+      width: 100px;
+      display: block;
+      margin: 5px auto;
+      padding: 3px;
+      font-size: 14px;
+      background-color: rgb(30, 30, 30);
+      text-shadow: rgb(136, 132, 75);
+      transition: all 0.2s;
+
+      &:disabled {
+        opacity: 0.5;
+      }
+
+      &:hover {
+        color: white;
+        transform: scale(1.1);
+      }
+
+      &:active {
+        transform: scale(0.9);
+      }
+    }
+  }
+}
+
+// 小升级窗口
+#smallLevelUpPanel {
+  position: absolute;
+  width: 400px;
+  height: 150px;
+  right: 20%;
+  bottom: 5%;
+  padding: 5px;
+  //outline: solid 1px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.5);
+
+  .btnItem() {
+    float: left;
+    width: 60px;
+    //height: 60px;
+    margin: 2px;
+    //outline: solid 1px;
+    transition: all 0.2s;
+    cursor: pointer;
+    user-select: none;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    font-size: 12px;
+    padding: 3px;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .levelUpItems {
+
+    .levelUpItem {
+      .btnItem();
+
+      .name {
+        height: 35px;
+        font-size: 10px;
+      }
+
+      .icon {
+        margin: 0 auto;
+      }
+
+      .price {
+        text-align: center;
+        font-size: 12px;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .otherItems {
+    .item {
+      .btnItem()
+    }
+
+    .levelDown, .sell {
+      .icon {
+        width: 50px;
+        height: 50px;
+        margin: 0 auto;
+        background-image: url("icon/down.png");
+        background-size: 50px 50px;
+      }
+
+      .inner-text {
+        text-align: center;
+        font-weight: bolder;
+      }
+    }
+
+    .sell {
+      .icon {
+        background-image: url("icon/sell.png");
+      }
+    }
+
+  }
+
+
+}
+
+button {
+  color: white;
+}
